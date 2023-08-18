@@ -1,0 +1,8 @@
+.navbar .dropdown-menu a.dropdown-item:hover{
+    background-color: rgb(75, 75, 75);
+  }
+  .navbar .dropdown-menu {
+    background-color: rgb(50, 50, 50) ;
+    border-color: goldenrod;
+  }
+  

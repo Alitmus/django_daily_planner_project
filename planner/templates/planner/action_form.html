@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+   
+    <style>
+        .center {
+    margin: auto;
+    width: 95%;
+    background-color: rgb(50, 50, 50);
+    color:gold;
+    border-color: goldenrod;
+  }
+
+  .navbar .dropdown-menu a.dropdown-item:hover{
+    background-color: rgb(75, 75, 75);
+  }
+  .navbar .dropdown-menu {
+    background-color: rgb(50, 50, 50) ;
+    border-color: goldenrod;
+  }
+  
+      </style>
+</head>
+<body style="background-color: rgb(50, 50, 50)">
+    <h1 style="text-align: center; position: relative ;top: 50px ;color: goldenrod;font-family: Impact;">Action </h1>
+    <br><br><br>
+
+    
+
+    <nav class=" navbar navbar-expand-lg ; center ; border border-warning ; rounded-3"  style="background-color: rgb(50, 50, 50);">
+      <div class="container-fluid">
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active ; text-warning " aria-current="page" href="/planner/">Home</a>
+            </li>
+            
+            <li class="nav-item dropdown ;">
+              <a class="nav-link dropdown-toggle ; text-warning ; bg-transparent" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Actions
+              </a>
+              <ul class="dropdown-menu ; bg-opacity-75 ; link-opacity-50-hover">
+                <li><a class="dropdown-item ; text-warning ; " href="/planner/action_list/" style="--bs-link-hover-color-rgb: 25, 135, 84;">Today</a></li>
+                <li><a class="dropdown-item ; text-warning " href="/planner/custom_date/">Custom Date</a></li>
+                
+                <li><a class="dropdown-item ; text-warning" href="/planner/action_form/">New Action</a></li>
+              </ul>
+            </li>
+           
+            <li class="nav-item dropdown ;">
+              <a class="nav-link dropdown-toggle ; text-warning ; bg-transparent" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Activity
+              </a>
+              <ul class="dropdown-menu ; bg-opacity-75 ; link-opacity-50-hover">
+                <li><a class="dropdown-item ; text-warning ; " href="/planner/activity_list/" style="--bs-link-hover-color-rgb: 25, 135, 84;">All | Edit</a></li>
+                <li><a class="dropdown-item ; text-warning " href="/planner/activity_form/">New Activity</a></li>
+                
+                <li><a class="dropdown-item ; text-warning" href="/planner/activity_report/">Activity Report</a></li>
+                <li><a class="dropdown-item ; text-warning" href="/planner/category_list/">Category</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>  
+   <br>
+
+    <form class="form-control ; center " action="" method="post" >
+    {% csrf_token %} 
+    {% for item in form %} 
+        <div >{{item.label_tag}}</div>
+        <div style="width: 10%;">{{item}}</div>
+    {% endfor %} 
+    
+    <br><br>
+    <button type="submit" class="btn btn-outline-warning" onclick="{% url 'planner:action_list' %}">Create Action</button>
+    <br><br>
+    {% if messages %}
+    <ul class="messages">
+       <!--{% for message in messages %}-->
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li>
+      <!--{% endfor %}-->
+    </ul>
+  {% endif %}
+    </form>
+    
+</body>
+</html>

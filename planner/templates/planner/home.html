@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
+    <style>
+.center {
+    margin: auto;
+    width: 95%;
+  }
+.center2{
+    
+ 
+    margin: auto;
+    width: 50%;
+    
+  }
+.flex-parent-element {
+  display: flex;
+  width: 50%; 
+}
+.flex-child-element {
+  flex: 1;
+  margin: 10px;
+}
+.flex-child-element:first-child {
+  margin-right: 20px;
+}
+    </style>
+</head>
+<body style="background-color: rgb(50, 50, 50)">
+
+    <h1 style="text-align: center; position: relative ;top: 50px ;color: goldenrod;font-family: Impact;">Planner</h1>
+ 
+    <br><br><br>
+
+<div class=" center2 ; flex-parent-element">
+       
+            <div  class=" center2 ; flex-child-element ; card ; border border-warning ; text-warning " style="width: 21rem;  background-color: rgb(60, 60, 60);align-items: center;">
+                <img src="../../../static/planner/img/pexels-jessica-lewis-3361483.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Daily Plan</h5>
+                <p class="card-text">Here you can manage your daily plan. Checking actions, adding new actions and specefic day report.</p>
+                <a href="{% url "planner:action_list" %}" class="btn btn-outline-info">Today</a>
+                <a href="{% url "planner:custom_date" %}" class="btn btn-outline-warning">Custom Date</a>
+                <a href="{% url "planner:action_form" %}" class="btn btn-outline-warning">New Action</a>
+            </div>
+            </div>
+        
+
+    <br><br><br>
+
+        
+            <div  class=" center2 ; flex-child-element ; card ; border-warning ; text-warning " style="width: 21rem; background-color: rgb(60, 60, 60);align-items: center;">
+                <img src="../../../static/planner/img/pexels-suzy-hazelwood-1174122.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Activity</h5>
+                <p class="card-text">Here you can manage your main activities. Also there is an option for checking the report of an activity.</p>
+                <a href="activity_list/" class="btn btn-outline-warning">All | Edit</a>
+                <a href="activity_form/" class="btn btn-outline-warning">New Activity</a>
+                <a href="activity_report/" class="btn btn-outline-warning">Report</a>
+                
+            </div>   
+            
+            
+        </div>
+        <div class="card ; center2"  style="position:fixed;bottom: 10px ;color:goldenrod;align-items: center;background-color: transparent;border-color:transparent;"   >
+           github : alitmus 
+        </div>
+    <br><br><br>  
+
+</body>
+</html>
